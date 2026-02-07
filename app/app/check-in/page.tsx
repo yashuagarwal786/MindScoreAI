@@ -129,10 +129,10 @@ export default function CheckInPage() {
 
   return (
     <div className="flex flex-col h-screen bg-background relative overflow-hidden">
-      {/* Background gradient elements */}
+      {/* Subtle background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 right-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 left-10 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
+        <div className="absolute top-20 right-10 w-72 h-72 bg-primary/5 rounded-full blur-2xl" />
+        <div className="absolute bottom-20 left-10 w-96 h-96 bg-accent/5 rounded-full blur-2xl" />
       </div>
 
       {/* Chat Header */}
@@ -157,7 +157,7 @@ export default function CheckInPage() {
           {messages.map((message, index) => (
             <div 
               key={message.id} 
-              className={`flex gap-3 ${message.role === 'user' ? 'justify-end' : 'justify-start'} animate-in fade-in slide-in-from-bottom-2 duration-300`}
+              className={`flex gap-3 ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
             >
               {message.role === 'assistant' && (
                 <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center flex-shrink-0 shadow-md">
@@ -166,10 +166,10 @@ export default function CheckInPage() {
               )}
               
               <div className={`flex flex-col ${message.role === 'user' ? 'items-end' : 'items-start'}`}>
-                <div className={`rounded-2xl px-5 py-3.5 max-w-[85%] sm:max-w-md transition-smooth ${
+                <div className={`rounded-2xl px-5 py-3.5 max-w-[85%] sm:max-w-md ${
                   message.role === 'user'
-                    ? 'bg-gradient-to-r from-primary to-primary/90 text-primary-foreground rounded-tr-md shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30'
-                    : 'bg-card border border-border/50 text-foreground rounded-tl-md shadow-md hover:shadow-lg'
+                    ? 'bg-primary text-primary-foreground rounded-tr-md'
+                    : 'bg-card border border-border/50 text-foreground rounded-tl-md'
                 }`}>
                   {message.content}
                 </div>
@@ -202,7 +202,7 @@ export default function CheckInPage() {
       {/* Input Area */}
       <div className="relative z-10 glass border-t border-border/40 px-4 sm:px-6 py-4 sm:py-5">
         <form onSubmit={handleSubmit} className="max-w-2xl mx-auto">
-          <div className={`flex gap-3 transition-smooth ${isFocused ? 'scale-105' : ''}`}>
+          <div className="flex gap-3">
             <div className="flex-1 relative">
               <textarea
                 ref={inputRef}
@@ -218,14 +218,14 @@ export default function CheckInPage() {
                 }}
                 placeholder="Share how you're feeling... (Shift+Enter for new line)"
                 disabled={isTyping}
-                className="flex-1 p-4 rounded-2xl border border-border/50 bg-muted/50 focus:bg-background focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/20 transition-smooth resize-none placeholder:text-muted-foreground text-foreground max-h-[120px]"
+                className="flex-1 p-4 rounded-2xl border border-border/50 bg-muted/50 focus:bg-background focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/20 resize-none placeholder:text-muted-foreground text-foreground max-h-[120px]"
                 rows={1}
               />
             </div>
             <Button 
               type="submit" 
               disabled={isTyping || !input.trim()}
-              className="h-auto px-5 py-4 rounded-2xl shadow-lg shadow-primary/20 hover:shadow-xl hover:scale-105 transition-smooth flex items-center gap-2 font-semibold"
+              className="h-auto px-5 py-4 rounded-2xl flex items-center gap-2 font-semibold hover:opacity-90"
             >
               <Send className="w-4 h-4" />
               <span className="hidden sm:inline">Send</span>

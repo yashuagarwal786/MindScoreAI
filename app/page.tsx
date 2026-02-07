@@ -78,11 +78,11 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
-      {/* Header - Premium Glassmorphism */}
-      <header className="fixed top-0 left-0 right-0 z-50 glass border-b border-border/40">
+      {/* Header */}
+      <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 border-b border-border/40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg shadow-primary/20">
+            <div className="w-9 h-9 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center">
               <span className="text-primary-foreground font-bold text-sm">M</span>
             </div>
             <span className="font-semibold text-lg bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">MindScoreAI</span>
@@ -100,19 +100,19 @@ export default function LandingPage() {
 
       {/* Hero Section - Premium */}
       <section className="pt-32 pb-20 px-4 sm:px-6 relative overflow-hidden">
-        {/* Animated background elements */}
+        {/* Subtle background elements - no animation */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-0 right-10 w-96 h-96 bg-accent/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+          <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-2xl" />
+          <div className="absolute bottom-0 right-10 w-96 h-96 bg-accent/5 rounded-full blur-2xl" />
         </div>
         
         <div 
-          className={`max-w-3xl mx-auto text-center transition-all duration-[var(--motion-reveal)] relative z-10 ${
-            isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-          }`}
+          className={`max-w-3xl mx-auto text-center relative z-10 ${
+            isLoaded ? 'opacity-100' : 'opacity-0'
+          } transition-opacity duration-300`}
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary mb-8 text-sm font-medium">
-            <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+            <span className="w-2 h-2 rounded-full bg-primary" />
             Now available: Anonymous emotional wellness tracking
           </div>
           
@@ -129,7 +129,7 @@ export default function LandingPage() {
             <Link href="/onboarding">
               <Button 
                 size="lg" 
-                className="w-full sm:w-auto rounded-full px-10 h-14 text-base font-semibold shadow-xl shadow-primary/30 hover:shadow-2xl hover:shadow-primary/40 transition-smooth hover:scale-105"
+                className="w-full sm:w-auto rounded-full px-10 h-14 text-base font-semibold hover:opacity-90 transition-opacity"
               >
                 Start Free Check-In
               </Button>
@@ -138,7 +138,7 @@ export default function LandingPage() {
               <Button 
                 variant="outline" 
                 size="lg" 
-                className="w-full sm:w-auto rounded-full px-10 h-14 text-base font-semibold bg-transparent hover:bg-muted/50 transition-smooth"
+                className="w-full sm:w-auto rounded-full px-10 h-14 text-base font-semibold bg-transparent hover:bg-muted/50"
               >
                 Watch Demo
               </Button>
