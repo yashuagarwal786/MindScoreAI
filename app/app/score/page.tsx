@@ -92,32 +92,37 @@ export default function ScorePage() {
   const scoreInfo = getScoreLabel(score)
   
   return (
-    <div className="min-h-[calc(100vh-64px)] lg:min-h-screen flex flex-col items-center justify-center px-4 py-8">
+    <div className="min-h-[calc(100vh-64px)] lg:min-h-screen flex flex-col items-center justify-center px-4 py-8 relative overflow-hidden">
+      {/* Background elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-accent/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+      </div>
+
       <div 
-        className={`w-full max-w-md transition-all duration-[var(--motion-reveal)] ${
-          isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+        className={`w-full max-w-md transition-all duration-[var(--motion-reveal)] relative z-10 ${
+          isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
         }`}
       >
-        <Card className="p-8 rounded-3xl border-0 shadow-xl text-center">
-          <div className="flex items-center justify-center gap-2 mb-6">
-            <Sparkles className="w-5 h-5 text-primary" />
-            <span className="text-sm font-medium text-muted-foreground">Your Wellness Score</span>
+        <Card className="p-10 rounded-3xl border border-border/50 shadow-2xl shadow-primary/15 text-center">
+          <div className="flex items-center justify-center gap-2 mb-8">
+            <Sparkles className="w-5 h-5 text-primary animate-pulse" />
+            <span className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">Your Wellness Score</span>
           </div>
           
           <AnimatedScore score={score} />
           
-          <div className={`mt-6 text-xl font-semibold ${scoreInfo.color}`}>
+          <div className={`mt-8 text-2xl font-bold transition-smooth ${scoreInfo.color}`}>
             {scoreInfo.label}
           </div>
           
-          <p className="mt-4 text-muted-foreground leading-relaxed">
-            Your responses show a thoughtful awareness of your emotional state. 
-            You're taking positive steps by checking in with yourself.
+          <p className="mt-6 text-muted-foreground leading-relaxed text-base">
+            Your responses show a thoughtful awareness of your emotional state. You're taking positive steps by checking in with yourself.
           </p>
           
-          <div className="mt-8 space-y-3">
+          <div className="mt-10 space-y-4">
             <Link href="/app/markets" className="block">
-              <Button className="w-full h-14 rounded-2xl text-base font-medium shadow-lg shadow-primary/20 flex items-center justify-center gap-2">
+              <Button className="w-full h-14 rounded-full text-base font-semibold shadow-lg shadow-primary/20 hover:shadow-xl hover:scale-105 transition-smooth flex items-center justify-center gap-2">
                 <TrendingUp className="w-5 h-5" />
                 Predict My Improvement
               </Button>
@@ -125,7 +130,7 @@ export default function ScorePage() {
             <Link href="/app/trends" className="block">
               <Button 
                 variant="outline" 
-                className="w-full h-14 rounded-2xl text-base font-medium flex items-center justify-center gap-2 bg-transparent"
+                className="w-full h-14 rounded-full text-base font-semibold flex items-center justify-center gap-2 hover:bg-muted/50 transition-smooth"
               >
                 <BarChart3 className="w-5 h-5" />
                 View Trends
@@ -134,9 +139,8 @@ export default function ScorePage() {
           </div>
         </Card>
         
-        <p className="text-center text-sm text-muted-foreground mt-6 px-4">
-          Your score is a reflection tool, not a diagnosis. 
-          It's meant to help you notice patterns over time.
+        <p className="text-center text-sm text-muted-foreground mt-8 px-4 leading-relaxed">
+          Your score is a reflection tool, not a diagnosis. It's meant to help you notice patterns over time.
         </p>
       </div>
     </div>

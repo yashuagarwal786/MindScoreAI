@@ -48,27 +48,33 @@ export default function OnboardingPage() {
 
   if (showWalletConnect) {
     return (
-      <div className="min-h-screen bg-background flex flex-col">
-        <div className="flex-1 flex flex-col items-center justify-center px-6 py-12">
-          <Card className="w-full max-w-md p-8 rounded-3xl border-0 shadow-xl text-center">
-            <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-6">
-              <Wallet className="w-8 h-8 text-primary" />
+      <div className="min-h-screen bg-background flex flex-col relative overflow-hidden">
+        {/* Background elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-20 right-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-20 left-10 w-96 h-96 bg-accent/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+        </div>
+
+        <div className="flex-1 flex flex-col items-center justify-center px-6 py-12 relative z-10">
+          <Card className="w-full max-w-md p-8 rounded-3xl border border-border/50 shadow-2xl shadow-primary/15 text-center">
+            <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary/30 to-accent/20 flex items-center justify-center mx-auto mb-8">
+              <Wallet className="w-10 h-10 text-primary" />
             </div>
-            <h2 className="text-2xl font-bold mb-3">Connect Your Wallet</h2>
-            <p className="text-muted-foreground mb-8">
+            <h2 className="text-3xl font-bold mb-4">Connect Your Wallet</h2>
+            <p className="text-muted-foreground mb-10 text-lg">
               Connect a wallet to earn and manage your reward tokens. This is optional.
             </p>
-            <div className="space-y-3">
+            <div className="space-y-4">
               <Button 
                 onClick={handleConnectWallet}
-                className="w-full h-14 rounded-2xl text-base font-medium"
+                className="w-full h-14 rounded-full text-base font-semibold shadow-lg shadow-primary/20 hover:shadow-xl"
               >
                 Connect Wallet
               </Button>
               <Button 
-                variant="ghost"
+                variant="outline"
                 onClick={handleSkip}
-                className="w-full h-14 rounded-2xl text-base font-medium text-muted-foreground"
+                className="w-full h-14 rounded-full text-base font-semibold"
               >
                 Skip for now
               </Button>
@@ -80,15 +86,21 @@ export default function OnboardingPage() {
   }
 
   return (
-    <div className="min-h-screen bg-background flex flex-col">
+    <div className="min-h-screen bg-background flex flex-col relative overflow-hidden">
+      {/* Background elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/3 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
+      </div>
+
       {/* Progress indicators */}
-      <div className="px-6 pt-8 pb-4">
+      <div className="px-6 pt-8 pb-4 relative z-10">
         <div className="flex gap-2 max-w-md mx-auto">
           {steps.map((_, index) => (
             <div
               key={index}
-              className={`h-1 flex-1 rounded-full transition-all duration-[var(--motion-transition)] ${
-                index <= currentStep ? 'bg-primary' : 'bg-muted'
+              className={`h-2 flex-1 rounded-full transition-all duration-[var(--motion-transition)] ${
+                index <= currentStep ? 'bg-primary shadow-lg shadow-primary/30' : 'bg-muted'
               }`}
             />
           ))}
@@ -96,20 +108,20 @@ export default function OnboardingPage() {
       </div>
 
       {/* Content */}
-      <div className="flex-1 flex flex-col items-center justify-center px-6 py-8">
+      <div className="flex-1 flex flex-col items-center justify-center px-6 py-8 relative z-10">
         <div 
           className="w-full max-w-md text-center transition-all duration-[var(--motion-reveal)]"
           key={currentStep}
         >
           <div 
-            className="w-24 h-24 rounded-3xl bg-primary/10 flex items-center justify-center mx-auto mb-8"
+            className="w-28 h-28 rounded-3xl bg-gradient-to-br from-primary/20 to-accent/10 flex items-center justify-center mx-auto mb-10"
           >
             {(() => {
               const Icon = steps[currentStep].icon
-              return <Icon className="w-12 h-12 text-primary" />
+              return <Icon className="w-14 h-14 text-primary" />
             })()}
           </div>
-          <h1 className="text-3xl font-bold mb-4 text-balance">
+          <h1 className="text-4xl sm:text-5xl font-bold mb-6 text-balance">
             {steps[currentStep].title}
           </h1>
           <p className="text-lg text-muted-foreground leading-relaxed text-pretty">
@@ -119,19 +131,19 @@ export default function OnboardingPage() {
       </div>
 
       {/* Navigation */}
-      <div className="px-6 pb-12 pt-4">
-        <div className="max-w-md mx-auto space-y-3">
+      <div className="px-6 pb-12 pt-4 relative z-10">
+        <div className="max-w-md mx-auto space-y-4">
           <Button 
             onClick={handleNext}
-            className="w-full h-14 rounded-2xl text-base font-medium shadow-lg shadow-primary/20 flex items-center justify-center gap-2"
+            className="w-full h-14 rounded-full text-base font-semibold shadow-lg shadow-primary/20 hover:shadow-xl hover:scale-105 transition-smooth flex items-center justify-center gap-2"
           >
             {currentStep === steps.length - 1 ? 'Get Started' : 'Continue'}
             <ChevronRight className="w-5 h-5" />
           </Button>
           <Button 
-            variant="ghost"
+            variant="outline"
             onClick={handleSkip}
-            className="w-full h-14 rounded-2xl text-base font-medium text-muted-foreground"
+            className="w-full h-14 rounded-full text-base font-semibold"
           >
             Skip
           </Button>
