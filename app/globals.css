@@ -2,17 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-/* MindScoreAI Premium Design System - Enhanced for Glassmorphism & Luxury Feel */
+/* MindScoreAI Premium Design System - Deep Blue & Gold Luxury Theme */
 :root {
-  /* Light Mode - Premium Violet & Cream */
-  --bg-primary: #FAF9FF;
+  /* Light Mode - Deep Blue & Gold */
+  --bg-primary: #F7FAFC;
   --bg-surface: #FFFFFF;
-  --color-primary: #7C6AE6;
-  --color-secondary: #9F8CFF;
-  --color-accent: #C6BFFF;
-  --color-success: #5FA76F;
-  --text-primary: #1F1A2E;
-  --text-secondary: #7B7587;
+  --color-primary: #0D47A1;
+  --color-secondary: #1565C0;
+  --color-accent: #F59E0B;
+  --color-success: #059669;
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
   
   /* Motion tokens - Premium smoothness */
   --motion-press: 120ms;
@@ -20,86 +20,86 @@
   --motion-reveal: 600ms;
   --motion-smooth: cubic-bezier(0.4, 0, 0.2, 1);
   
-  /* Shadcn tokens mapped to MindScoreAI Premium */
-  --background: #FAF9FF;
-  --foreground: #1F1A2E;
+  /* Shadcn tokens mapped to Blue & Gold Theme */
+  --background: #F7FAFC;
+  --foreground: #0F172A;
   --card: #FFFFFF;
-  --card-foreground: #1F1A2E;
+  --card-foreground: #0F172A;
   --popover: #FFFFFF;
-  --popover-foreground: #1F1A2E;
-  --primary: #7C6AE6;
+  --popover-foreground: #0F172A;
+  --primary: #0D47A1;
   --primary-foreground: #FFFFFF;
-  --secondary: #E8E4F7;
-  --secondary-foreground: #1F1A2E;
-  --muted: #F5F3FF;
-  --muted-foreground: #7B7587;
-  --accent: #9F8CFF;
+  --secondary: #EFF6FF;
+  --secondary-foreground: #0F172A;
+  --muted: #F0F4F8;
+  --muted-foreground: #64748B;
+  --accent: #F59E0B;
   --accent-foreground: #FFFFFF;
-  --destructive: #D85E5E;
+  --destructive: #DC2626;
   --destructive-foreground: #FFFFFF;
-  --border: #DFD9ED;
-  --input: #F5F3FF;
-  --ring: #7C6AE6;
-  --chart-1: #7C6AE6;
-  --chart-2: #9F8CFF;
-  --chart-3: #5FA76F;
-  --chart-4: #B39DFF;
-  --chart-5: #E8E4F7;
+  --border: #E2E8F0;
+  --input: #F0F4F8;
+  --ring: #0D47A1;
+  --chart-1: #0D47A1;
+  --chart-2: #1565C0;
+  --chart-3: #059669;
+  --chart-4: #F59E0B;
+  --chart-5: #EFF6FF;
   --radius: 1.25rem;
   --sidebar: #FFFFFF;
-  --sidebar-foreground: #1F1A2E;
-  --sidebar-primary: #7C6AE6;
+  --sidebar-foreground: #0F172A;
+  --sidebar-primary: #0D47A1;
   --sidebar-primary-foreground: #FFFFFF;
-  --sidebar-accent: #F5F3FF;
-  --sidebar-accent-foreground: #1F1A2E;
-  --sidebar-border: #DFD9ED;
-  --sidebar-ring: #7C6AE6;
+  --sidebar-accent: #FEF3C7;
+  --sidebar-accent-foreground: #0F172A;
+  --sidebar-border: #E2E8F0;
+  --sidebar-ring: #0D47A1;
 }
 
 .dark {
-  /* Dark Mode - AMOLED Premium */
+  /* Dark Mode - Deep Blue & Gold AMOLED */
   --bg-primary: #000000;
-  --bg-surface: #080808;
-  --color-primary: #9A8BFF;
-  --color-secondary: #B8ACFF;
-  --color-accent: #D4C8FF;
-  --color-success: #6BB880;
-  --text-primary: #F8F6FF;
-  --text-secondary: #C4C0CE;
+  --bg-surface: #0A0E27;
+  --color-primary: #60A5FA;
+  --color-secondary: #93C5FD;
+  --color-accent: #FBBF24;
+  --color-success: #10B981;
+  --text-primary: #F0F9FF;
+  --text-secondary: #CBD5E1;
   
   /* Shadcn tokens mapped */
   --background: #000000;
-  --foreground: #F8F6FF;
-  --card: #0F0D1A;
-  --card-foreground: #F8F6FF;
-  --popover: #0F0D1A;
-  --popover-foreground: #F8F6FF;
-  --primary: #9A8BFF;
+  --foreground: #F0F9FF;
+  --card: #0F1729;
+  --card-foreground: #F0F9FF;
+  --popover: #0F1729;
+  --popover-foreground: #F0F9FF;
+  --primary: #60A5FA;
   --primary-foreground: #000000;
-  --secondary: #1A1728;
-  --secondary-foreground: #F8F6FF;
-  --muted: #2A2540;
-  --muted-foreground: #C4C0CE;
-  --accent: #B8ACFF;
+  --secondary: #0C2340;
+  --secondary-foreground: #F0F9FF;
+  --muted: #1E293B;
+  --muted-foreground: #94A3B8;
+  --accent: #FBBF24;
   --accent-foreground: #000000;
-  --destructive: #E07070;
-  --destructive-foreground: #F8F6FF;
-  --border: #2A2540;
-  --input: #1A1728;
-  --ring: #9A8BFF;
-  --chart-1: #9A8BFF;
-  --chart-2: #B8ACFF;
-  --chart-3: #6BB880;
-  --chart-4: #D4C8FF;
-  --chart-5: #2A2540;
-  --sidebar: #0F0D1A;
-  --sidebar-foreground: #F8F6FF;
-  --sidebar-primary: #9A8BFF;
+  --destructive: #F87171;
+  --destructive-foreground: #F0F9FF;
+  --border: #1E3A5F;
+  --input: #0C2340;
+  --ring: #60A5FA;
+  --chart-1: #60A5FA;
+  --chart-2: #93C5FD;
+  --chart-3: #10B981;
+  --chart-4: #FBBF24;
+  --chart-5: #0C2340;
+  --sidebar: #0F1729;
+  --sidebar-foreground: #F0F9FF;
+  --sidebar-primary: #60A5FA;
   --sidebar-primary-foreground: #000000;
-  --sidebar-accent: #1A1728;
-  --sidebar-accent-foreground: #F8F6FF;
-  --sidebar-border: #2A2540;
-  --sidebar-ring: #9A8BFF;
+  --sidebar-accent: #451A03;
+  --sidebar-accent-foreground: #F0F9FF;
+  --sidebar-border: #1E3A5F;
+  --sidebar-ring: #60A5FA;
 }
 
 @layer base {
@@ -126,11 +126,11 @@
   .glass {
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.75);
   }
   
   .dark .glass {
-    background-color: rgba(15, 13, 26, 0.5);
+    background-color: rgba(15, 23, 41, 0.6);
   }
   
   /* Smooth transitions and animations */
